@@ -41,11 +41,11 @@ if(${SFL4J_JAR})
   ament_export_jars(${SFL4J_JAR})
 else()
   set(slf4j_version "1.7.25")
-  set(slf4j_api_sha256 "18c4a0095d5c1da6b817592e767bb23d29dd2f560ad74df75ff3961dbde25b79")
-  set(slf4j_api_url "http://central.maven.org/maven2/org/slf4j/slf4j-api/${slf4j_version}/slf4j-api-${slf4j_version}.jar")
-  set(slf4j_api_jar_path "${CMAKE_CURRENT_BINARY_DIR}/jars/slf4j-api-${slf4j_version}.jar")
-  file(DOWNLOAD ${slf4j_api_url} ${slf4j_api_jar_path} EXPECTED_HASH SHA256=${slf4j_api_sha256})
-
+  #set(slf4j_api_sha256 "18c4a0095d5c1da6b817592e767bb23d29dd2f560ad74df75ff3961dbde25b79")
+  #set(slf4j_api_url "http://central.maven.org/maven2/org/slf4j/slf4j-api/${slf4j_version}/slf4j-api-${slf4j_version}.jar")
+  set(slf4j_api_jar_path "/slf4j-api-${slf4j_version}.jar")
+  #file(DOWNLOAD ${slf4j_api_url} ${slf4j_api_jar_path} EXPECTED_HASH SHA256=${slf4j_api_sha256})
+  #execute_process(COMMAND bash "-c" "wget ${slf4j_api_url})
   install(FILES
     ${slf4j_api_jar_path}
     DESTINATION
@@ -54,10 +54,10 @@ else()
   ament_export_jars("share/${PROJECT_NAME}/java/slf4j-api-${slf4j_version}.jar")
 
   if(ANDROID)
-    set(slf4j_android_sha256 "fbd7b254e02d8aef60c418a5f0e14a783b38a16162caffb2d2a16ccd5d2c09b4")
-    set(slf4j_android_url "http://central.maven.org/maven2/org/slf4j/slf4j-android/${slf4j_version}/slf4j-android-${slf4j_version}.jar")
-    set(slf4j_android_jar_path "${CMAKE_CURRENT_BINARY_DIR}/jars/slf4j-android-${slf4j_version}.jar")
-    file(DOWNLOAD ${slf4j_android_url} ${slf4j_android_jar_path} EXPECTED_HASH SHA256=${slf4j_android_sha256})
+    #set(slf4j_android_sha256 "fbd7b254e02d8aef60c418a5f0e14a783b38a16162caffb2d2a16ccd5d2c09b4")
+    #set(slf4j_android_url "http://central.maven.org/maven2/org/slf4j/slf4j-android/${slf4j_version}/slf4j-android-${slf4j_version}.jar")
+    set(slf4j_android_jar_path "/slf4j-android-${slf4j_version}.jar")
+    #file(DOWNLOAD ${slf4j_android_url} ${slf4j_android_jar_path} EXPECTED_HASH SHA256=${slf4j_android_sha256})
     list(APPEND logging_jars "${slf4j_android_jar_path}")
 
     install(FILES
